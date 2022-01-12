@@ -15,7 +15,7 @@ namespace SchoolMVC.Controllers.api
         {
             try
             {
-                createList();
+                createList(); 
                 return Ok(studentsList);
             }
             catch (Exception x)
