@@ -13,38 +13,72 @@ namespace SchoolMVC.Controllers.api
         List<Student> studentsList = new List<Student>();
         public IHttpActionResult Get()
         {
-            createList();
-            return Ok(studentsList);
+            try
+            {
+                createList();
+                return Ok(studentsList);
+            }
+            catch (Exception x)
+            {
+                return BadRequest(x.Message);
+            }
         }
 
         public IHttpActionResult Get(int id)
         {
-            createList();
-            return Ok(studentsList.Find(stu => stu.Id == id));
+            try
+            {
+                createList();
+                return Ok(studentsList.Find(stu => stu.Id == id));
+            } catch (Exception x)
+            {
+                return BadRequest(x.Message);
+            }
         }
 
         public IHttpActionResult Post([FromBody] Student newStu)
         {
-            createList();
-            studentsList.Add(newStu);
-            return Ok(studentsList);
+            try
+            {
+                createList();
+                studentsList.Add(newStu);
+                return Ok(studentsList);
+            }
+            catch (Exception x)
+            {
+                return BadRequest(x.Message);
+            }
         }
 
         
         public IHttpActionResult Put(int id, [FromBody] Student updaed)
         {
-            createList();
-            Student someStudent =  studentsList.Find(stu => stu.Id == id);
-            studentsList[studentsList.IndexOf(someStudent)] = updaed;
-            return Ok(studentsList);
+            try
+            {
+                createList();
+                Student someStudent = studentsList.Find(stu => stu.Id == id);
+                studentsList[studentsList.IndexOf(someStudent)] = updaed;
+                return Ok(studentsList);
+            }
+            catch (Exception x)
+            {
+                return BadRequest(x.Message);
+            }
         }
 
         
         public IHttpActionResult Delete(int id)
         {
-            createList();
-            studentsList.Remove(studentsList.Find(stu => stu.Id == id));
-            return Ok(studentsList);
+            try
+            {
+                createList();
+                studentsList.Remove(studentsList.Find(stu => stu.Id == id));
+                return Ok(studentsList);
+            }
+            catch (Exception x)
+            {
+                return BadRequest(x.Message);
+            }
 
         }
 

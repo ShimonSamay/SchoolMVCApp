@@ -9,7 +9,7 @@ namespace SchoolMVC.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: Student
+        
         List<Student> studentsList = new List<Student>();   
         public ActionResult getStudentName()
         {
