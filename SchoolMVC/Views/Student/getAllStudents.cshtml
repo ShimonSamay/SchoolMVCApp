@@ -1,0 +1,9 @@
+﻿@using SchoolMVC.Models;
+
+@foreach (Student student in ViewBag.list)
+{
+    <h1>@student.FirstName</h1>
+    <h1>@student.LastName</h1>
+    <h1>@student.Age</h1>
+    <h1>@student.Grade</h1>
+}
